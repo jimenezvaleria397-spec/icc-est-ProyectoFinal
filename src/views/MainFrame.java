@@ -36,7 +36,12 @@ public class MainFrame extends JFrame {
         setLayout(new BorderLayout());
 
         Graph<MapPoint> graph = new Graph<>();
+        //Prueba de nodos temporal
         mapPanel = new MapPanel(graph);
+        graph.add(new MapPoint("N1", 250, 250));
+        graph.add(new MapPoint("N2", 500, 300));
+        graph.add(new MapPoint("N3", 700, 450));
+        graph.add(new MapPoint("N4", 900, 150));
 
         crearPanelLateral();
         crearPanelInferior();

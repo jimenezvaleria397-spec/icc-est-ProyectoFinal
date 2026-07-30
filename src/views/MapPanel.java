@@ -21,6 +21,12 @@ public class MapPanel extends JPanel {
 
         ImageIcon icono = new ImageIcon(getClass().getResource("/resources/maps/mapa.jpeg"));
         mapa = icono.getImage();
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent e) {
+                System.out.println("X = " + e.getX() + "   Y = " + e.getY());
+            }
+        });
 
     }
 

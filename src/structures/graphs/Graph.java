@@ -76,8 +76,6 @@ public class Graph<T> {
     return graph.getOrDefault(node, new LinkedHashSet<>());
 
     }
-    public void clear() {
-    graph.clear();
-}
+    
 
 }
