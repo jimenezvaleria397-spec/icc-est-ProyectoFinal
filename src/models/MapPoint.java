@@ -18,43 +18,12 @@ public class MapPoint {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
     public int getX() {
         return x;
     }
 
-    public void setX(int x) {
-        this.x = x;
-    }
-
     public int getY() {
         return y;
-    }
-
-    public void setY(int y) {
-        this.y = y;
-    }
-
-    @Override
-    public String toString() {
-        return id;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-
-        if (this == obj)
-            return true;
-
-        if (!(obj instanceof MapPoint))
-            return false;
-
-        MapPoint other = (MapPoint) obj;
-
-        return Objects.equals(id, other.id);
     }
 
     @Override
@@ -62,4 +31,24 @@ public class MapPoint {
         return Objects.hash(id);
     }
 
+    @Override
+    public boolean equals(Object obj) {
+
+        if (this == obj) {
+            return true;
+        }
+
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+
+        MapPoint otro = (MapPoint) obj;
+
+        return Objects.equals(id, otro.id);
+    }
+
+    @Override
+    public String toString() {
+        return id;
+    }
 }

@@ -19,27 +19,28 @@ public class Node<T> {
     }
 
     @Override
-    public boolean equals(Object obj) {
-
-        if (this == obj)
-            return true;
-
-        if (!(obj instanceof Node<?>))
-            return false;
-
-        Node<?> other = (Node<?>) obj;
-
-        return Objects.equals(data, other.data);
-    }
-
-    @Override
     public int hashCode() {
         return Objects.hash(data);
     }
 
     @Override
-    public String toString() {
-        return data.toString();
+    public boolean equals(Object obj) {
+
+        if (this == obj) {
+            return true;
+        }
+
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+
+        Node<?> otro = (Node<?>) obj;
+
+        return Objects.equals(data, otro.data);
     }
 
+    @Override
+    public String toString() {
+        return String.valueOf(data);
+    }
 }
