@@ -4,6 +4,9 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import javax.swing.*;
 
+import models.MapPoint;
+import structures.graphs.Graph;
+
 public class MainFrame extends JFrame {
 
     private JPanel panelLateral;
@@ -32,7 +35,8 @@ public class MainFrame extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
-        mapPanel = new MapPanel();
+        Graph<MapPoint> graph = new Graph<>();
+        mapPanel = new MapPanel(graph);
 
         crearPanelLateral();
         crearPanelInferior();
@@ -46,11 +50,11 @@ public class MainFrame extends JFrame {
     private void crearPanelLateral() {
 
         panelLateral = new JPanel();
-        panelLateral.setPreferredSize(new Dimension(220,700));
+        panelLateral.setPreferredSize(new Dimension(220, 700));
         panelLateral.setLayout(new BoxLayout(panelLateral, BoxLayout.Y_AXIS));
 
-        cmbAlgoritmo = new JComboBox<>(new String[]{"BFS","DFS"});
-        cmbModo = new JComboBox<>(new String[]{"EXPLORATION","FINAL_PATH"});
+        cmbAlgoritmo = new JComboBox<>(new String[] { "BFS", "DFS" });
+        cmbModo = new JComboBox<>(new String[] { "EXPLORATION", "FINAL_PATH" });
 
         btnEjecutar = new JButton("Ejecutar");
         btnLimpiar = new JButton("Limpiar");
@@ -63,6 +67,22 @@ public class MainFrame extends JFrame {
 
         btnConectar = new JButton("Conectar");
         btnEliminarConexion = new JButton("Eliminar Conexión");
+
+        // AJusto el tamanio de los botones
+        cmbAlgoritmo.setMaximumSize(new Dimension(180, 30));
+        cmbModo.setMaximumSize(new Dimension(180, 30));
+
+        btnEjecutar.setMaximumSize(new Dimension(180, 30));
+        btnLimpiar.setMaximumSize(new Dimension(180, 30));
+
+        btnInicio.setMaximumSize(new Dimension(180, 30));
+        btnDestino.setMaximumSize(new Dimension(180, 30));
+
+        btnAgregarNodo.setMaximumSize(new Dimension(180, 30));
+        btnEliminarNodo.setMaximumSize(new Dimension(180, 30));
+
+        btnConectar.setMaximumSize(new Dimension(180, 30));
+        btnEliminarConexion.setMaximumSize(new Dimension(180, 30));
 
         panelLateral.add(Box.createVerticalStrut(10));
         panelLateral.add(cmbAlgoritmo);
@@ -86,7 +106,7 @@ public class MainFrame extends JFrame {
 
     }
 
-    private void crearPanelInferior(){
+    private void crearPanelInferior() {
 
         panelInferior = new JPanel();
 
