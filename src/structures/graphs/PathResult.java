@@ -1,14 +1,15 @@
 package structures.graphs;
 
-import java.util.LinkedHashSet;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 public class PathResult<T> {
 
     private Set<T> visitados;
-    private Set<T> path;
+    private List<T> path;
 
-    public PathResult(Set<T> visitados, Set<T> path) {
+    public PathResult(Set<T> visitados, List<T> path) {
         this.visitados = visitados;
         this.path = path;
     }
@@ -17,12 +18,12 @@ public class PathResult<T> {
         return visitados;
     }
 
-    public Set<T> getPath() {
+    public List<T> getPath() {
         return path;
     }
 
     public static <T> PathResult<T> sinRuta(Set<T> visitados) {
-        return new PathResult<>(visitados, new LinkedHashSet<>());
+        return new PathResult<>(visitados, new ArrayList<>());
     }
 
 }

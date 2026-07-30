@@ -79,7 +79,7 @@ public class DFSPathFinder<T> implements PathFinder<T> {
         for (Node<T> nodo : visitados)
             visitadosFinal.add(nodo.getData());
 
-        return new PathResult<>(visitadosFinal, new LinkedHashSet<>(ruta));
+        return new PathResult<>(visitadosFinal, ruta);
 
     }
 

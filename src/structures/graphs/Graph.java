@@ -69,5 +69,15 @@ public class Graph<T> {
     public Set<Node<T>> getNodes() {
         return graph.keySet();
     }
+    public Set<Node<T>> getNeighbors(T data) {
+
+    Node<T> node = new Node<>(data);
+
+    return graph.getOrDefault(node, new LinkedHashSet<>());
+
+    }
+    public void clear() {
+    graph.clear();
+}
 
 }
