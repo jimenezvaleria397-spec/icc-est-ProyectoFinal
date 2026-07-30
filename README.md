@@ -1,4 +1,5 @@
 #  Proyecto Final - Búsqueda de Rutas con BFS y DFS
+![alt text](image-3.png)
 
 ##  Integrantes
 
